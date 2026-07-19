@@ -57,7 +57,7 @@ The `CNAME` file in this repo already holds your domain, so GitHub will recogniz
 
 Commit/upload both changes. The home page picks up the new post automatically. That's it.
 
-## Note on previewing locally
+## Note on previewing locally 
 
 If you open `index.html` directly from your computer (file://), the post list may not load —
 browsers block file reads for security. That's expected. It works correctly once the files are
