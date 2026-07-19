@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Knudsen Equity Research</title>
+  <meta name="description" content="A notebook of equity research and trade ideas." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='Times New Roman,serif' font-weight='700'>K</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrap">
+
+    <!-- ===== Masthead ===== -->
+    <h1 class="masthead">Knudsen Equity Research</h1>
+    <hr class="rule" />
+
+    <!-- ===== Ethos — edit this text freely ===== -->
+    <section class="ethos">
+      <p>This is a notebook of equity research and trade ideas — written first for my own thinking, and shared in case it is useful to anyone else reading along. Every position starts as a question: what is this business worth, what has the market misjudged, and what would have to be true for the trade to work.</p>
+      <p>No newsletters, no noise. Just the work, posted as it comes.</p>
+    </section>
+    <!-- ===== End ethos ===== -->
+
+    <!-- ===== Writing index (generated from posts.json) ===== -->
+    <p class="label">Writing</p>
+    <ul class="index" id="index">
+      <li><span class="empty">Loading…</span></li>
+    </ul>
+
+    <!-- ===== Disclaimer (every page) ===== -->
+    <p class="disclaimer">Nothing on this site is investment advice, a solicitation, or a recommendation to buy or sell any security. These are personal opinions written for informational and educational purposes only, may be wrong, and may change without notice. The author may hold positions in the securities discussed. Do your own research and consult a licensed financial professional before making any investment decision.</p>
+
+  </main>
+
+  <script>
+    // Build the writing index from posts.json (newest first — order them as you like in the file).
+    fetch("posts.json")
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        var posts = (data && data.posts) || [];
+        var list = document.getElementById("index");
+        if (!posts.length) {
+          list.innerHTML = '<li><span class="empty">No posts yet.</span></li>';
+          return;
+        }
+        list.innerHTML = posts.map(function (p) {
+          var url = "post.html?p=" + encodeURIComponent(p.slug);
+          return '<li><a href="' + url + '">' + escapeHtml(p.title) + '</a>' +
+                 '<span class="date">' + escapeHtml(p.date || "") + '</span></li>';
+        }).join("");
+      })
+      .catch(function () {
+        document.getElementById("index").innerHTML =
+          '<li><span class="empty">Could not load posts.</span></li>';
+      });
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, function (c) {
+        return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+      });
+    }
+  </script>
+</body>
+</html>

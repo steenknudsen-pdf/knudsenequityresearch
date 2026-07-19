@@ -1,0 +1,255 @@
+/* Knudsen Equity Research — shared styles
+   Everything is Times New Roman, on purpose. */
+
+:root {
+  --ink: #1a1a1a;
+  --muted: #6b6b6b;
+  --rule: #dadad3;
+  --paper: #fbfbf9;
+  --measure: 672px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Times New Roman", Times, serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.wrap {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 112px 24px 72px;
+}
+
+@media (max-width: 600px) {
+  .wrap {
+    padding: 64px 20px 56px;
+  }
+}
+
+/* ---- Masthead ---- */
+.masthead {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.masthead a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.rule {
+  height: 1px;
+  background: var(--rule);
+  border: 0;
+  margin: 20px 0 0;
+}
+
+/* ---- Ethos ---- */
+.ethos {
+  margin: 44px 0 0;
+}
+
+.ethos p {
+  font-size: 19px;
+  line-height: 1.65;
+  margin: 0 0 16px;
+}
+
+.ethos p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---- Section label ---- */
+.label {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 44px 0 24px;
+}
+
+/* ---- Writing index ---- */
+.index {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.index li {
+  padding: 0 0 22px;
+  margin: 0 0 22px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.index li:last-child {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
+.index a {
+  display: inline-block;
+  font-size: 21px;
+  line-height: 1.35;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.index a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.index .date {
+  display: block;
+  font-size: 15px;
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+.index .empty {
+  font-size: 17px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ---- Article ---- */
+.backlink {
+  font-size: 15px;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.backlink:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.article-head {
+  margin: 24px 0 36px;
+}
+
+.article-title {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+  margin: 0 0 10px;
+}
+
+.article-date {
+  font-size: 15px;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Rendered markdown body */
+.article-body {
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.article-body > *:first-child {
+  margin-top: 0;
+}
+
+.article-body p {
+  margin: 0 0 20px;
+}
+
+.article-body h2 {
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+  margin: 36px 0 16px;
+}
+
+.article-body h3 {
+  font-size: 19px;
+  font-weight: 700;
+  margin: 28px 0 12px;
+}
+
+.article-body a {
+  color: var(--ink);
+  text-underline-offset: 2px;
+}
+
+.article-body blockquote {
+  margin: 24px 0;
+  padding: 0 0 0 20px;
+  border-left: 2px solid var(--rule);
+  color: #333;
+  font-style: italic;
+}
+
+.article-body ul,
+.article-body ol {
+  margin: 0 0 20px;
+  padding-left: 24px;
+}
+
+.article-body li {
+  margin: 0 0 8px;
+}
+
+.article-body hr {
+  height: 1px;
+  background: var(--rule);
+  border: 0;
+  margin: 36px 0;
+}
+
+.article-body code {
+  font-family: "Courier New", monospace;
+  font-size: 0.9em;
+  background: #f0efe9;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.article-body img {
+  max-width: 100%;
+  height: auto;
+}
+
+.article-body table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 0 20px;
+  font-size: 17px;
+}
+
+.article-body th,
+.article-body td {
+  border: 1px solid var(--rule);
+  padding: 8px 12px;
+  text-align: left;
+}
+
+/* ---- Disclaimer footer (every page) ---- */
+.disclaimer {
+  margin-top: 44px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--muted);
+}
